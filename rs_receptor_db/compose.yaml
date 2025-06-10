@@ -1,0 +1,22 @@
+version: "3"
+services:
+  db:
+    image: postgres
+    environment:
+      POSTGRES_USER: bankerz
+      POSTGRES_ROOT_PASSWORD_FILE: /run/secrets/db_root_password
+      POSTGRES_PASSWORD_FILE: /run/secrets/db_password
+    ports:
+      - "5432:5432"
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    secrets:
+      - db_root_password
+      - db_password
+secrets:
+  db_password:
+    file: db_password.txt
+  db_root_password:
+    file: db_root_password.txt
+volumes:
+  db_data:

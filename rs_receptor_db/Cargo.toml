@@ -9,5 +9,11 @@ tokio = { version = "1.0", features = ["full"] }
 tower = "0.4"
 hyper = "0.14"
 serde_json = "1.0"
-curl = "0.4.48"
 log = "0.4.27"
+reqwest = "0.12"
+diesel = { version = "2.2.0", features = ["postgres"] }
+# build libpq and openssl as part of the build process
+# uncomment these lines if you run into setup issues
+# pq-sys = { version = "0.6", features = ["bundled"] }
+# openssl-sys = { version = "0.9.100", features = ["vendored"] } 
+dotenvy = "0.15"
