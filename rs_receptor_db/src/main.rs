@@ -46,6 +46,8 @@ async fn _convert_gene_json_db() {
     let json_value: Vec<Value> = serde_json::from_str(&res).unwrap();
     // Add data from stack local buffer as records to a postgres db
     for item in &json_value {
+        if item["taxon_label"] == "Homo sapiens" {
+        }
     };
 
     // Return a Result
